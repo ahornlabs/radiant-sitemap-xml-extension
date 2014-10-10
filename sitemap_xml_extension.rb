@@ -1,8 +1,5 @@
 class SitemapXmlExtension < Radiant::Extension
-  version "0.9"
-  description "Radiant Extension to automatically generate a sitemap XML for you site"
-  url "http://blog.aissac.ro/radiant/sitemap-xml-extension/"
-  
+
   CHANGE_FREQUENCY_OPTIONS = [
     ["always","always"],
     ["hourly","hourly"],
@@ -12,7 +9,7 @@ class SitemapXmlExtension < Radiant::Extension
     ["yearly","yearly"],
     ["never","never"]
   ]
-  
+
   FREQUENCY_OPTIONS = [
     ["0.0","0.0"],
     ["0.1","0.1"],
@@ -26,12 +23,12 @@ class SitemapXmlExtension < Radiant::Extension
     ["0.9","0.9"],
     ["1.0","1.0"]
   ]
-  
+
   def activate
     Page.send(:include, SitemapXml::PageExtensions)
     admin.page.edit.add :extended_metadata, 'admin/pages/sitemap_xml_form'
   end
-  
+
   def deactivate
-  end  
+  end
 end
